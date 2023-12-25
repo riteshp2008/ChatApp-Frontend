@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { registerRoute } from "../utils/APIRoutes";
 
+  
 function Register() {
   const navigate = useNavigate();
   const [values, setValues] = useState({
@@ -25,7 +26,7 @@ function Register() {
 
   useEffect(() => {
     if (sessionStorage.getItem("chat-app-user")) {
-      navigate("/");
+      navigate("/login");
     }
   }, []);
 
