@@ -10,6 +10,7 @@ import Welcome from "../components/Welcome";
 
 export default function Chat() {
   const navigate = useNavigate();
+  const [sidebar, setSidebar] = useState(false);
   const socket = useRef();
   const [contacts, setContacts] = useState([]);
   const [currentChat, setCurrentChat] = useState(undefined);
@@ -50,12 +51,40 @@ export default function Chat() {
   const handleChatChange = (chat) => {
     setCurrentChat(chat);
   };
+  function detectMob() {
+    const toMatch = [
+      /Android/i,
+      /webOS/i,
+      /iPhone/i,
+      /iPad/i,
+      /iPod/i,
+      /BlackBerry/i,
+      /Windows Phone/i,
+    ];
+
+    return toMatch.some((toMatchItem) => {
+      return navigator.userAgent.match(toMatchItem);
+    });
+  }
+  
+  useEffect(() => {
+    if (detectMob()) {
+      setSidebar(true);
+    }
+  }, []);
 
   return (
     <>
       <Container>
         <div className="container">
-          <Contacts contacts={contacts} changeChat={handleChatChange} />
+          {sidebar ? (
+            <span
+            onClick={() => setSidebar(!sidebar)}
+            >👨‍💻</span>
+          ) : (
+            <Contacts contacts={contacts} changeChat={handleChatChange} />
+          )}
+
           {currentChat === undefined ? (
             <Welcome />
           ) : (
@@ -84,6 +113,9 @@ const Container = styled.div`
     grid-template-columns: 25% 75%;
     @media screen and (min-width: 720px) and (max-width: 1080px) {
       grid-template-columns: 35% 65%;
+    }
+    @media screen and (max-width: 600px) {
+      grid-template-columns: 100%;
     }
   }
 `;

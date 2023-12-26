@@ -69,7 +69,7 @@ export default function Contacts({ contacts, changeChat }) {
     );
   }
   
-const Container = styled.div`
+  const Container = styled.div`
   display: grid;
   grid-template-rows: 10% 75% 15%;
   overflow: hidden;
@@ -147,6 +147,20 @@ const Container = styled.div`
     }
     @media screen and (min-width: 720px) and (max-width: 1080px) {
       gap: 0.5rem;
+      .username {
+        h2 {
+          font-size: 1rem;
+        }
+      }
+    }
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+      gap: 1rem;
+      .avatar {
+        img {
+          height: 3rem;
+        }
+      }
       .username {
         h2 {
           font-size: 1rem;
