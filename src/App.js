@@ -27,9 +27,9 @@ export default function App() {
             <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
             <Route path="/setAvatar" element={<SetAvatar />} />
-            <Protected isLoggedIn={isLoggedIn}>
+            {/* <Protected isLoggedIn={isLoggedIn}> */}
               <Route path="/chat" element={<Chat />} />
-            </Protected>
+            {/* </Protected> */}
             </>
       </Routes>
        
