@@ -12,7 +12,7 @@ export default function App() {
   
   const storedUser = sessionStorage.getItem("chat-app-user");
 
-  React.. m,useEffect(() => {
+  React.useEffect(() => {
     if (storedUser) {
       setIsLoggedIn(true);
     }
