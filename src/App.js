@@ -12,12 +12,12 @@ export default function App() {
   
   const storedUser = sessionStorage.getItem("chat-app-user");
 
-  React.useEffect(() => {
+  React.. m,useEffect(() => {
     if (storedUser) {
       setIsLoggedIn(true);
     }
   }
-  , [storedUser]);
+  , []);
   return (
     <BrowserRouter>
       <Routes>
