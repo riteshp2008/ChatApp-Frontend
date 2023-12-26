@@ -10,7 +10,7 @@ import Protected from './ProtectedRoutes'
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   
-  const storedUser = sessionStorage.getItem("chat-app-user");
+  const storedUser = localStorage.getItem("chat-app-user");
 
   React.useEffect(() => {
     if (storedUser) {

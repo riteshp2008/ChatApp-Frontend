@@ -8,11 +8,11 @@ export default function Logout() {
   const navigate = useNavigate();
   const handleClick = async () => {
     const id = await JSON.parse(
-      sessionStorage.getItem(`chat-app-user`)
+      localStorage.getItem(`chat-app-user`)
     )._id;
     const data = await axios.get(`${logoutRoute}/${id}`);
     if (data.status === 200) {
-      sessionStorage.clear();
+      localStorage.clear();
       navigate("/login");
     }
   };

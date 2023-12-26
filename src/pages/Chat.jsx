@@ -19,7 +19,7 @@ export default function Chat() {
   useEffect(() => {
     const fetchDataAndConnectSocket = async () => {
       try {
-        const storedUser = sessionStorage.getItem("chat-app-user");
+        const storedUser = localStorage.getItem("chat-app-user");
         if (!storedUser) {
           navigate("/login");
           return;

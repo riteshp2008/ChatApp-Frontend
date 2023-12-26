@@ -50,7 +50,7 @@ export default function SetAvatar() {
       return;
     }
 
-    const storedUser = sessionStorage.getItem("chat-app-user");
+    const storedUser = localStorage.getItem("chat-app-user");
     if (!storedUser) {
       toast.error("User data not found in local storage", toastOptions);
       return;
@@ -65,7 +65,7 @@ export default function SetAvatar() {
       if (data.isSet) {
         user.isAvatarImageSet = true;
         user.avatarImage = data.image;
-        sessionStorage.setItem("chat-app-user", JSON.stringify(user));
+        localStorage.setItem("chat-app-user", JSON.stringify(user));
         navigate("/chat");
       } else {
         toast.error("Error setting avatar. Please try again.", toastOptions);

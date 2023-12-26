@@ -25,7 +25,7 @@ function Register() {
   };
 
   useEffect(() => {
-    if (sessionStorage.getItem("chat-app-user")) {
+    if (localStorage.getItem("chat-app-user")) {
       navigate("/login");
     }
   }, []);
@@ -40,7 +40,7 @@ function Register() {
         password,
       });
       if(data.status === true) {
-        sessionStorage.setItem(`chat-app-user`, JSON.stringify(data.data));
+        localStorage.setItem(`chat-app-user`, JSON.stringify(data.data));
       }
       navigate("/login");
    }

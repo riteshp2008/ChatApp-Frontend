@@ -14,7 +14,7 @@ export default function ChatContainer({ currentChat, socket }) {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const data = await JSON.parse(sessionStorage.getItem(`chat-app-user`));
+          const data = await JSON.parse(localStorage.getItem(`chat-app-user`));
           const response = await axios.post(recieveMessageRoute, {
             from: data._id,
             to: currentChat._id,
@@ -31,7 +31,7 @@ export default function ChatContainer({ currentChat, socket }) {
     const handleSendMsg = useCallback(
       async (msg) => {
         try {
-          const data = await JSON.parse(sessionStorage.getItem(`chat-app-user`));
+          const data = await JSON.parse(localStorage.getItem(`chat-app-user`));
           socket.current.emit("send-msg", {
             to: currentChat._id,
             from: data._id,
